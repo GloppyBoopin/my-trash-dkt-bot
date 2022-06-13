@@ -3,11 +3,11 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 group = "me.couca"
 version = "1.0-SNAPSHOT"
 val kotestVersion = "5.3.0"
-val discordKtVersion = "0.23.0-SNAPSHOT"
+val discordKtVersion = "0.22.0"
 val lombokVersion = "1.18.24"
 
 plugins {
-  kotlin("jvm") version "1.5.10"
+  kotlin("jvm") version "1.6.20"
 }
 
 repositories {
@@ -27,5 +27,5 @@ tasks.test {
 }
 
 tasks.withType<KotlinCompile> {
-  kotlinOptions.jvmTarget = "11"
+  kotlinOptions.jvmTarget = "17"
 }

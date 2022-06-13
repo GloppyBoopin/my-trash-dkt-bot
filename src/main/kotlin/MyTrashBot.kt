@@ -3,9 +3,10 @@ import dev.kord.gateway.Intents
 import dev.kord.x.emoji.Emojis
 import exception.TrashBotException
 import kotlinx.coroutines.flow.toList
-import me.jakejmattson.discordkt.dsl.bot
-import me.jakejmattson.discordkt.extensions.addField
-import me.jakejmattson.discordkt.extensions.profileLink
+import me.jakejmattson.discordkt.api.dsl.bot
+import me.jakejmattson.discordkt.api.extensions.addField
+import me.jakejmattson.discordkt.api.extensions.profileLink
+import util.Utility
 import java.awt.Color
 
 @KordPreview
@@ -15,6 +16,10 @@ fun main(args: Array<String>) {
     ?: throw TrashBotException("Expected the bot token as a command line argument")
 
   bot(token) {
+    prefix {
+      "."
+    }
+
     configure {
       theme = Color(0x00BFFF)
       commandReaction = Emojis.flagKz
@@ -23,26 +28,26 @@ fun main(args: Array<String>) {
 
     mentionEmbed {
       title = "Trash bot"
-      color = it.discord.configuration.theme
+      color = Utility.randomColor()
 
       author {
         with(it.author) {
-          icon = avatar?.url
+          icon = avatar.url
           name = tag
           url = profileLink
         }
       }
 
       thumbnail {
-        url = it.discord.kord.getSelf().avatar?.url!!
+        url = it.discord.kord.getSelf().avatar.url
       }
 
       footer {
         val versions = it.discord.versions
-        text = "${versions.library} - ${versions.kord} - ${versions.kotlin}"
+        text = "DiscordKt: ${versions.library} - Kord: ${versions.kord} - Kotlin: ${versions.kotlin}"
       }
 
-      addField("Bruh", it.message?.content!!)
+      addField("Why you ping me", it.author.mention)
     }
 
     presence {
@@ -51,7 +56,7 @@ fun main(args: Array<String>) {
 
     onStart {
       val guilds = kord.guilds.toList().joinToString { it.name }
-      println("Guilds: $guilds")
+      println("Servers: $guilds")
     }
   }
 
