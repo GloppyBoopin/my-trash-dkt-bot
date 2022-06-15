@@ -3,8 +3,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 group = "me.couca"
 version = "1.0-SNAPSHOT"
 val kotestVersion = "5.3.0"
-val discordKtVersion = "0.22.0"
-val lombokVersion = "1.18.24"
+val discordKtVersion = "0.23.0-SNAPSHOT"
+val gsonVersion = "2.9.0"
 
 plugins {
   kotlin("jvm") version "1.6.20"
@@ -17,7 +17,7 @@ repositories {
 
 dependencies {
   implementation("me.jakejmattson:DiscordKt:$discordKtVersion")
-  implementation("org.projectlombok:lombok:$lombokVersion")
+  implementation("com.google.code.gson:gson:$gsonVersion")
   testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
   testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
 }
