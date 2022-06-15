@@ -5,6 +5,7 @@ object Descriptions {
   const val AVATAR_DESC = "get any user's avatar"
   const val THANOS_SNAP_DESC = "thanos snap previous N messages"
   const val IP_DESC = "get IP of a user"
+  const val TO_ASCII_DESC = "converts an image to ASCII art"
 }
 
 object Errors {
@@ -14,4 +15,7 @@ object Errors {
 
   const val SAY_ERROR = "`say` error: Number of repetitions should be positive and not greater than 10"
   const val THANOS_SNAP_ERROR ="`thanos-snap` only can snap positive number of messages and not greater than 10"
+
+  const val NOT_IMG_ERROR = "Attachment is not an image"
+  const val IMG_READ_ERROR = "Failed to read image or it doesn't exist"
 }
