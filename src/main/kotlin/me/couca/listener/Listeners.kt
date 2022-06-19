@@ -17,15 +17,14 @@ private val FLAG_KZ = DiscordEmoji.Generic("\uD83C\uDDF0\uD83C\uDDFF")
 
 fun defaultListeners(imgService: ImageService, pasteBin: PasteBinClient) = listeners {
   val listenedToMessage = Snowflake(986180756785229824)
-  val listenedToUser: ULong = 267293217307754506u
 
   on<ReactionAddEvent> {
-    if (messageId == listenedToMessage && userId.value == listenedToUser) message.addReaction(emoji)
+    if (messageId == listenedToMessage && userId == guild!!.asGuild().ownerId) message.addReaction(emoji)
   }
 
   //Bootleg command implementation
   on<MessageCreateEvent> {
-    if (message.content.contains(TO_ASCII_COMMAND)) {
+    if (TO_ASCII_COMMAND == message.content.substring(0, TO_ASCII_COMMAND.length - 1)) {
       message.addReaction(FLAG_KZ)
 
       if (message.attachments.size == 1) {

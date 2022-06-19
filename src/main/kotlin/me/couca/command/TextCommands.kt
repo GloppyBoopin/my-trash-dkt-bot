@@ -41,9 +41,7 @@ fun textCommands(imgService: ImageService, pasteBin: PasteBinClient) = commands(
   command("ip") {
     description = IP_DESC
 
-    execute(UserArg) {
-      respondColored { title = Utility.randomIP() }
-    }
+    execute(UserArg) { respondColored { title = Utility.randomIP() } }
   }
 
   command("to-ascii") {

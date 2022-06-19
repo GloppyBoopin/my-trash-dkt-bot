@@ -58,7 +58,7 @@ fun main(args: Array<String>) {
 
     presence {
       status = PresenceStatus.DoNotDisturb
-      playing(".help")
+      playing(".help for help")
     }
 
     onStart {

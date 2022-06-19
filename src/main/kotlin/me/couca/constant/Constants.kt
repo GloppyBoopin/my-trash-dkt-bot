@@ -6,6 +6,7 @@ object Descriptions {
   const val THANOS_SNAP_DESC = "thanos snap previous N messages"
   const val IP_DESC = "get IP of a user"
   const val TO_ASCII_DESC = "converts an image to ASCII art"
+  const val INVITE_DESC = "invites a user to the server"
 }
 
 object Errors {

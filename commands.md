@@ -16,6 +16,7 @@
 ## Moderation
 | Commands    | Arguments | Description                     |
 |-------------|-----------|---------------------------------|
+| invite      | User      | invites a user to the server    |
 | thanos-snap | Integer   | thanos snap previous N messages |
 
 ## Text
